@@ -107,7 +107,7 @@ public class AccountNew implements Serializable {
             return this;
         }
         public Builder i(String ri) {
-            f = ri;
+            i = ri;
             return this;
         }
         public Builder j(String rj) {
