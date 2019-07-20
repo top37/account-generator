@@ -30,6 +30,12 @@ public class StringUtils {
         if(s.contains("红字冲销")) return "Red";
         return "Blue";
     }
+
+    public static String strBrackets(String s){
+        if(s == null) return "";
+        if(s.length() == 10) return s;
+        return "("+s+")";
+    }
     public static void main(String[] args) {
         System.out.println(StringUtils.replaceBlank("just do it!"));
     }
