@@ -1,0 +1,11 @@
+spring:
+    datasource:
+        url: jdbc:mysql://10.152.36.xxx:3306/test
+        username: xxx
+        password: xxx
+        driver-class-name: com.mysql.jdbc.Driver
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: com.sq.account.generator.model
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

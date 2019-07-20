@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sq.account.generator.dao.AccountCdMapper" >
+  <resultMap id="BaseResultMap" type="com.sq.account.generator.model.AccountCd" >
+    <id column="A" property="a" jdbcType="BIGINT" />
+    <result column="B" property="b" jdbcType="VARCHAR" />
+    <result column="C" property="c" jdbcType="VARCHAR" />
+    <result column="D" property="d" jdbcType="VARCHAR" />
+    <result column="E" property="e" jdbcType="VARCHAR" />
+    <result column="F" property="f" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    A, B, C, D, E, F
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.sq.account.generator.model.AccountCdExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from accountcd
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from accountcd
+    where A = #{a,jdbcType=BIGINT}
+  </select>
+  <select id="queryAll"  resultMap="BaseResultMap" >
+    select * from accountcd
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from accountcd
+    where A = #{a,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.sq.account.generator.model.AccountCdExample" >
+    delete from accountcd
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.sq.account.generator.model.AccountCd" >
+    insert into accountcd (A, B, C, D, 
+      E, F)
+    values (#{a,jdbcType=BIGINT}, #{b,jdbcType=VARCHAR}, #{c,jdbcType=VARCHAR}, #{d,jdbcType=VARCHAR}, 
+      #{e,jdbcType=VARCHAR}, #{f,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sq.account.generator.model.AccountCd" >
+    insert into accountcd
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="a != null" >
+        A,
+      </if>
+      <if test="b != null" >
+        B,
+      </if>
+      <if test="c != null" >
+        C,
+      </if>
+      <if test="d != null" >
+        D,
+      </if>
+      <if test="e != null" >
+        E,
+      </if>
+      <if test="f != null" >
+        F,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="a != null" >
+        #{a,jdbcType=BIGINT},
+      </if>
+      <if test="b != null" >
+        #{b,jdbcType=VARCHAR},
+      </if>
+      <if test="c != null" >
+        #{c,jdbcType=VARCHAR},
+      </if>
+      <if test="d != null" >
+        #{d,jdbcType=VARCHAR},
+      </if>
+      <if test="e != null" >
+        #{e,jdbcType=VARCHAR},
+      </if>
+      <if test="f != null" >
+        #{f,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.sq.account.generator.model.AccountCdExample" resultType="java.lang.Integer" >
+    select count(*) from accountcd
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update accountcd
+    <set >
+      <if test="record.a != null" >
+        A = #{record.a,jdbcType=BIGINT},
+      </if>
+      <if test="record.b != null" >
+        B = #{record.b,jdbcType=VARCHAR},
+      </if>
+      <if test="record.c != null" >
+        C = #{record.c,jdbcType=VARCHAR},
+      </if>
+      <if test="record.d != null" >
+        D = #{record.d,jdbcType=VARCHAR},
+      </if>
+      <if test="record.e != null" >
+        E = #{record.e,jdbcType=VARCHAR},
+      </if>
+      <if test="record.f != null" >
+        F = #{record.f,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update accountcd
+    set A = #{record.a,jdbcType=BIGINT},
+      B = #{record.b,jdbcType=VARCHAR},
+      C = #{record.c,jdbcType=VARCHAR},
+      D = #{record.d,jdbcType=VARCHAR},
+      E = #{record.e,jdbcType=VARCHAR},
+      F = #{record.f,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sq.account.generator.model.AccountCd" >
+    update accountcd
+    <set >
+      <if test="b != null" >
+        B = #{b,jdbcType=VARCHAR},
+      </if>
+      <if test="c != null" >
+        C = #{c,jdbcType=VARCHAR},
+      </if>
+      <if test="d != null" >
+        D = #{d,jdbcType=VARCHAR},
+      </if>
+      <if test="e != null" >
+        E = #{e,jdbcType=VARCHAR},
+      </if>
+      <if test="f != null" >
+        F = #{f,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where A = #{a,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sq.account.generator.model.AccountCd" >
+    update accountcd
+    set B = #{b,jdbcType=VARCHAR},
+      C = #{c,jdbcType=VARCHAR},
+      D = #{d,jdbcType=VARCHAR},
+      E = #{e,jdbcType=VARCHAR},
+      F = #{f,jdbcType=VARCHAR}
+    where A = #{a,jdbcType=BIGINT}
+  </update>
+</mapper>

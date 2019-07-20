@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sq.account.generator.dao.AccountNewMapper" >
+  <resultMap id="BaseResultMap" type="com.sq.account.generator.model.AccountNew" >
+    <result column="B" property="b" jdbcType="VARCHAR" />
+    <result column="C" property="c" jdbcType="VARCHAR" />
+    <result column="D" property="d" jdbcType="VARCHAR" />
+    <result column="E" property="e" jdbcType="VARCHAR" />
+    <result column="F" property="f" jdbcType="VARCHAR" />
+    <result column="G" property="g" jdbcType="VARCHAR" />
+    <result column="H" property="h" jdbcType="VARCHAR" />
+    <result column="I" property="i" jdbcType="VARCHAR" />
+    <result column="J" property="j" jdbcType="VARCHAR" />
+    <result column="K" property="k" jdbcType="VARCHAR" />
+    <result column="L" property="l" jdbcType="VARCHAR" />
+    <result column="M" property="m" jdbcType="VARCHAR" />
+    <result column="N" property="n" jdbcType="VARCHAR" />
+    <result column="O" property="o" jdbcType="VARCHAR" />
+    <result column="P" property="p" jdbcType="VARCHAR" />
+    <result column="Q" property="q" jdbcType="VARCHAR" />
+    <result column="R" property="r" jdbcType="VARCHAR" />
+    <result column="S" property="s" jdbcType="VARCHAR" />
+    <result column="T" property="t" jdbcType="VARCHAR" />
+    <result column="U" property="u" jdbcType="VARCHAR" />
+    <result column="V" property="v" jdbcType="VARCHAR" />
+    <result column="W" property="w" jdbcType="VARCHAR" />
+    <result column="X" property="x" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.sq.account.generator.model.AccountNewExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from accountnew
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.sq.account.generator.model.AccountNewExample" >
+    delete from accountnew
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.sq.account.generator.model.AccountNew" >
+    insert into accountnew (B, C, D, E, 
+      F, G, H, I, 
+      J, K, L, M, 
+      N, O, P, Q, 
+      R, S, T, U, 
+      V, W, X)
+    values (#{b,jdbcType=VARCHAR}, #{c,jdbcType=VARCHAR}, #{d,jdbcType=VARCHAR}, #{e,jdbcType=VARCHAR}, 
+      #{f,jdbcType=VARCHAR}, #{g,jdbcType=VARCHAR}, #{h,jdbcType=VARCHAR}, #{i,jdbcType=VARCHAR}, 
+      #{j,jdbcType=VARCHAR}, #{k,jdbcType=VARCHAR}, #{l,jdbcType=VARCHAR}, #{m,jdbcType=VARCHAR}, 
+      #{n,jdbcType=VARCHAR}, #{o,jdbcType=VARCHAR}, #{p,jdbcType=VARCHAR}, #{q,jdbcType=VARCHAR}, 
+      #{r,jdbcType=VARCHAR}, #{s,jdbcType=VARCHAR}, #{t,jdbcType=VARCHAR}, #{u,jdbcType=VARCHAR}, 
+      #{v,jdbcType=VARCHAR}, #{w,jdbcType=VARCHAR}, #{x,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sq.account.generator.model.AccountNew" >
+    insert into accountnew
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="b != null" >
+        B,
+      </if>
+      <if test="c != null" >
+        C,
+      </if>
+      <if test="d != null" >
+        D,
+      </if>
+      <if test="e != null" >
+        E,
+      </if>
+      <if test="f != null" >
+        F,
+      </if>
+      <if test="g != null" >
+        G,
+      </if>
+      <if test="h != null" >
+        H,
+      </if>
+      <if test="i != null" >
+        I,
+      </if>
+      <if test="j != null" >
+        J,
+      </if>
+      <if test="k != null" >
+        K,
+      </if>
+      <if test="l != null" >
+        L,
+      </if>
+      <if test="m != null" >
+        M,
+      </if>
+      <if test="n != null" >
+        N,
+      </if>
+      <if test="o != null" >
+        O,
+      </if>
+      <if test="p != null" >
+        P,
+      </if>
+      <if test="q != null" >
+        Q,
+      </if>
+      <if test="r != null" >
+        R,
+      </if>
+      <if test="s != null" >
+        S,
+      </if>
+      <if test="t != null" >
+        T,
+      </if>
+      <if test="u != null" >
+        U,
+      </if>
+      <if test="v != null" >
+        V,
+      </if>
+      <if test="w != null" >
+        W,
+      </if>
+      <if test="x != null" >
+        X,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="b != null" >
+        #{b,jdbcType=VARCHAR},
+      </if>
+      <if test="c != null" >
+        #{c,jdbcType=VARCHAR},
+      </if>
+      <if test="d != null" >
+        #{d,jdbcType=VARCHAR},
+      </if>
+      <if test="e != null" >
+        #{e,jdbcType=VARCHAR},
+      </if>
+      <if test="f != null" >
+        #{f,jdbcType=VARCHAR},
+      </if>
+      <if test="g != null" >
+        #{g,jdbcType=VARCHAR},
+      </if>
+      <if test="h != null" >
+        #{h,jdbcType=VARCHAR},
+      </if>
+      <if test="i != null" >
+        #{i,jdbcType=VARCHAR},
+      </if>
+      <if test="j != null" >
+        #{j,jdbcType=VARCHAR},
+      </if>
+      <if test="k != null" >
+        #{k,jdbcType=VARCHAR},
+      </if>
+      <if test="l != null" >
+        #{l,jdbcType=VARCHAR},
+      </if>
+      <if test="m != null" >
+        #{m,jdbcType=VARCHAR},
+      </if>
+      <if test="n != null" >
+        #{n,jdbcType=VARCHAR},
+      </if>
+      <if test="o != null" >
+        #{o,jdbcType=VARCHAR},
+      </if>
+      <if test="p != null" >
+        #{p,jdbcType=VARCHAR},
+      </if>
+      <if test="q != null" >
+        #{q,jdbcType=VARCHAR},
+      </if>
+      <if test="r != null" >
+        #{r,jdbcType=VARCHAR},
+      </if>
+      <if test="s != null" >
+        #{s,jdbcType=VARCHAR},
+      </if>
+      <if test="t != null" >
+        #{t,jdbcType=VARCHAR},
+      </if>
+      <if test="u != null" >
+        #{u,jdbcType=VARCHAR},
+      </if>
+      <if test="v != null" >
+        #{v,jdbcType=VARCHAR},
+      </if>
+      <if test="w != null" >
+        #{w,jdbcType=VARCHAR},
+      </if>
+      <if test="x != null" >
+        #{x,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.sq.account.generator.model.AccountNewExample" resultType="java.lang.Integer" >
+    select count(*) from accountnew
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update accountnew
+    <set >
+      <if test="record.b != null" >
+        B = #{record.b,jdbcType=VARCHAR},
+      </if>
+      <if test="record.c != null" >
+        C = #{record.c,jdbcType=VARCHAR},
+      </if>
+      <if test="record.d != null" >
+        D = #{record.d,jdbcType=VARCHAR},
+      </if>
+      <if test="record.e != null" >
+        E = #{record.e,jdbcType=VARCHAR},
+      </if>
+      <if test="record.f != null" >
+        F = #{record.f,jdbcType=VARCHAR},
+      </if>
+      <if test="record.g != null" >
+        G = #{record.g,jdbcType=VARCHAR},
+      </if>
+      <if test="record.h != null" >
+        H = #{record.h,jdbcType=VARCHAR},
+      </if>
+      <if test="record.i != null" >
+        I = #{record.i,jdbcType=VARCHAR},
+      </if>
+      <if test="record.j != null" >
+        J = #{record.j,jdbcType=VARCHAR},
+      </if>
+      <if test="record.k != null" >
+        K = #{record.k,jdbcType=VARCHAR},
+      </if>
+      <if test="record.l != null" >
+        L = #{record.l,jdbcType=VARCHAR},
+      </if>
+      <if test="record.m != null" >
+        M = #{record.m,jdbcType=VARCHAR},
+      </if>
+      <if test="record.n != null" >
+        N = #{record.n,jdbcType=VARCHAR},
+      </if>
+      <if test="record.o != null" >
+        O = #{record.o,jdbcType=VARCHAR},
+      </if>
+      <if test="record.p != null" >
+        P = #{record.p,jdbcType=VARCHAR},
+      </if>
+      <if test="record.q != null" >
+        Q = #{record.q,jdbcType=VARCHAR},
+      </if>
+      <if test="record.r != null" >
+        R = #{record.r,jdbcType=VARCHAR},
+      </if>
+      <if test="record.s != null" >
+        S = #{record.s,jdbcType=VARCHAR},
+      </if>
+      <if test="record.t != null" >
+        T = #{record.t,jdbcType=VARCHAR},
+      </if>
+      <if test="record.u != null" >
+        U = #{record.u,jdbcType=VARCHAR},
+      </if>
+      <if test="record.v != null" >
+        V = #{record.v,jdbcType=VARCHAR},
+      </if>
+      <if test="record.w != null" >
+        W = #{record.w,jdbcType=VARCHAR},
+      </if>
+      <if test="record.x != null" >
+        X = #{record.x,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update accountnew
+    set B = #{record.b,jdbcType=VARCHAR},
+      C = #{record.c,jdbcType=VARCHAR},
+      D = #{record.d,jdbcType=VARCHAR},
+      E = #{record.e,jdbcType=VARCHAR},
+      F = #{record.f,jdbcType=VARCHAR},
+      G = #{record.g,jdbcType=VARCHAR},
+      H = #{record.h,jdbcType=VARCHAR},
+      I = #{record.i,jdbcType=VARCHAR},
+      J = #{record.j,jdbcType=VARCHAR},
+      K = #{record.k,jdbcType=VARCHAR},
+      L = #{record.l,jdbcType=VARCHAR},
+      M = #{record.m,jdbcType=VARCHAR},
+      N = #{record.n,jdbcType=VARCHAR},
+      O = #{record.o,jdbcType=VARCHAR},
+      P = #{record.p,jdbcType=VARCHAR},
+      Q = #{record.q,jdbcType=VARCHAR},
+      R = #{record.r,jdbcType=VARCHAR},
+      S = #{record.s,jdbcType=VARCHAR},
+      T = #{record.t,jdbcType=VARCHAR},
+      U = #{record.u,jdbcType=VARCHAR},
+      V = #{record.v,jdbcType=VARCHAR},
+      W = #{record.w,jdbcType=VARCHAR},
+      X = #{record.x,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>
