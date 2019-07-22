@@ -18,6 +18,9 @@ public class ServiceUtils {
     public static LinkedHashMap<String,AccountNew> m = new LinkedHashMap<>();
     private ServiceUtils(){}
 
+    /*
+        最小粒度：场景
+     */
     public static void service(List<AccountIn> lstAccount,Map<String,String> am1,String cj,int c) {
         if(null == lstAccount || lstAccount.size() == 0) return;
         String key;
