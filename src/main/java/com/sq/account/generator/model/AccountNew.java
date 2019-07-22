@@ -387,11 +387,6 @@ public class AccountNew implements Serializable {
         this.x = x == null ? null : x.trim();
     }
 
-//    public static void main(String[] args) {
-//        AccountNew an = new AccountNew.Builder()
-//    }
-
-
     @Override
     public String toString() {
         return "AccountNew{" +

@@ -50,7 +50,7 @@ public class ServiceUtils {
 
                 }
             }else {
-                //一借多贷
+                //一借一贷、一借多贷
                 key = debitCode+a.getG();
                 AccountIn az = a;
                 log.info(am1.get(key)+" <->  借："+debitCode+"  辅助核算："+au+"  摘要："+desc+"  贷："+a.getG()+"  辅助核算："+a.getJ()+"  摘要："+a.getE());
