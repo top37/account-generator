@@ -1,12 +1,12 @@
 package com.sq.account.generator;
 
-import com.sq.account.generator.ias.AbsAccountGenerator;
-import com.sq.account.generator.ias.IdataStore;
-import com.sq.account.generator.utils.ServiceUtils;
 import com.sq.account.generator.dao.AccountCdMapper;
 import com.sq.account.generator.dao.AccountInMapper;
 import com.sq.account.generator.dao.AccountNewMapper;
+import com.sq.account.generator.ias.AbsAccountGenerator;
+import com.sq.account.generator.ias.IdataStore;
 import com.sq.account.generator.model.AccountNew;
+import com.sq.account.generator.utils.ServiceUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -69,6 +69,9 @@ public class AccountGeneratorTest extends AbsAccountGenerator implements IdataSt
 
 	@After
 	public void tearDown(){
+		//统计
+		showDiff(chm,am);
+
 		m.clear();
 		m1.clear();
 		m2.clear();

@@ -36,6 +36,13 @@ public class StringUtils {
         if(s.length() == 10) return s;
         return "("+s+")";
     }
+
+    public static String saveNum(String s){
+        String regEx="[^0-9]";
+        Pattern p = Pattern.compile(regEx);
+        Matcher m = p.matcher(s);
+        return m.replaceAll("").trim();
+    }
     public static void main(String[] args) {
         System.out.println(StringUtils.replaceBlank("just do it!"));
     }

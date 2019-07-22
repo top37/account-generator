@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import static com.sq.account.generator.utils.StringUtils.saveNum;
+
 public abstract class AbsAccountGenerator {
     private static final Logger log = LoggerFactory.getLogger(AbsAccountGenerator.class);
     protected static int j;
@@ -142,6 +144,23 @@ public abstract class AbsAccountGenerator {
                 chm.get(an.getG()+an.getP()).setW(str);
                 chm.get(an.getG()+an.getP()).setQ(str);
             }
+        }
+    }
+
+    protected void showDiff(Map<String,AccountNew> chm,Map<String,String> am){
+        for(String k : chm.keySet()){
+            rmKfromam(k,am);
+        }
+        for (String a : am.keySet()){
+            log.info("剩余记账码："+ a +"  <->  "+ am.get(a));
+        }
+    }
+
+    private void rmKfromam(String k,Map<String,String> am) {
+        String[] strArr = k.replaceAll("\\(","").replaceAll("\\)","").split("\\|");
+        for(String r : strArr){
+            r = saveNum(r);
+            am.remove(r);
         }
     }
 
