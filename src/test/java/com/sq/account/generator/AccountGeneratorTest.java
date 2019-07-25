@@ -44,17 +44,10 @@ public class AccountGeneratorTest extends AbsAccountGenerator implements IdataSt
 	}
 
 	@Test
-	public void generator1() {
+	public void generator() {
 		log.info("---------------------start------------------------");
-        for(String v : m1.values()){
-        	j += 1;
-			log.info(v);
-			if(v == null || "".equals(v)) continue;
-			v = v.split("\\|")[0];
-			ServiceUtils.service(m2.get(v),am1,v,j);
-			log.info("============");
-        }
 
+		doService(m1,m2,am1);
 		log.debug("j =======>"+j);
 
 		pkgRecord(ServiceUtils.m,chm);
@@ -62,9 +55,8 @@ public class AccountGeneratorTest extends AbsAccountGenerator implements IdataSt
 		for(AccountNew ann : chm.values()){
 			accountNewMapper.insertSelective(ann);
 		}
+
 		log.info("---------------------end------------------------");
-
-
 	}
 
 	@After

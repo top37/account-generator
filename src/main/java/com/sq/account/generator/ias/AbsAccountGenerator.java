@@ -3,6 +3,7 @@ package com.sq.account.generator.ias;
 import com.sq.account.generator.model.AccountCd;
 import com.sq.account.generator.model.AccountIn;
 import com.sq.account.generator.model.AccountNew;
+import com.sq.account.generator.utils.ServiceUtils;
 import com.sq.account.generator.utils.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -144,6 +145,17 @@ public abstract class AbsAccountGenerator {
                 chm.get(an.getG()+an.getP()).setW(str);
                 chm.get(an.getG()+an.getP()).setQ(str);
             }
+        }
+    }
+
+    protected void doService(Map<String,String> m1, Map<String,List<AccountIn>> m2, Map<String,String> am1) {
+        for(String v : m1.values()){
+            j += 1;
+            log.info(v);
+            if(v == null || "".equals(v)) continue;
+            v = v.split("\\|")[0];
+            ServiceUtils.service(m2.get(v),am1,v,j);
+            log.info("============");
         }
     }
 
